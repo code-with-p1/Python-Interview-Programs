@@ -1,3 +1,4 @@
+# Approach 1
 def move_zeros_to_beginning(arr):
     for i in range(len(arr)-1,-1,-1):
         if arr[i] == 0:
