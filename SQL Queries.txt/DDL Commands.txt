@@ -1,0 +1,64 @@
+Sure! Here's an example SQL query for each Data Definition Language (DDL) statement:
+
+1. **CREATE TABLE**: This statement is used to create a new table in the database.
+   
+   ```sql
+   CREATE TABLE Employees (
+       EmployeeID INT PRIMARY KEY,
+       FirstName VARCHAR(50),
+       LastName VARCHAR(50),
+       Department VARCHAR(50)
+   );
+   ```
+
+2. **ALTER TABLE**: This statement is used to modify an existing table schema, such as adding, modifying, or dropping columns.
+   
+   ```sql
+   ALTER TABLE Employees
+   ADD Email VARCHAR(100);
+   ```
+
+3. **DROP TABLE**: This statement is used to delete an existing table from the database.
+   
+   ```sql
+   DROP TABLE Employees;
+   ```
+
+4. **CREATE INDEX**: This statement is used to create an index on a table, which can improve the performance of queries.
+   
+   ```sql
+   CREATE INDEX idx_LastName ON Employees(LastName);
+   ```
+
+5. **DROP INDEX**: This statement is used to remove an existing index from the database.
+   
+   ```sql
+   DROP INDEX idx_LastName;
+   ```
+
+6. **CREATE VIEW**: This statement is used to create a virtual table based on the result of a SELECT query.
+   
+   ```sql
+   CREATE VIEW EmployeeNames AS
+   SELECT FirstName, LastName FROM Employees;
+   ```
+
+7. **DROP VIEW**: This statement is used to delete an existing view from the database.
+   
+   ```sql
+   DROP VIEW EmployeeNames;
+   ```
+
+8. **CREATE DATABASE**: This statement is used to create a new database.
+   
+   ```sql
+   CREATE DATABASE CompanyDB;
+   ```
+
+9. **DROP DATABASE**: This statement is used to delete an existing database from the server.
+   
+   ```sql
+   DROP DATABASE CompanyDB;
+   ```
+
+These are some basic examples of SQL queries for each DDL statement.

@@ -1,0 +1,68 @@
+In SQL, a view is a virtual table that consists of rows and columns, just like a real table in a database. However, unlike a physical table, a view does not store any data of its own. Instead, it is based on the result set of a SQL query. Views can simplify complex queries, provide security by restricting access to certain columns or rows, and encapsulate complex logic.
+
+### Types of Views:
+
+1. **Simple Views**:
+   - Simple views are based on a single table or a straightforward query.
+   - They don't contain any GROUP BY, HAVING, or DISTINCT clauses.
+   - Example:
+     ```sql
+     CREATE VIEW EmployeeView AS
+     SELECT employee_id, first_name, last_name
+     FROM Employees
+     WHERE department_id = 10;
+     ```
+
+2. **Complex Views**:
+   - Complex views are based on multiple tables or involve more complex queries.
+   - They may contain GROUP BY, HAVING, or DISTINCT clauses.
+   - Example:
+     ```sql
+     CREATE VIEW SalesSummary AS
+     SELECT customer_id, COUNT(order_id) AS num_orders, SUM(total_amount) AS total_sales
+     FROM Orders
+     GROUP BY customer_id;
+     ```
+
+3. **Indexed Views**:
+   - Indexed views are materialized views that are stored physically on the disk.
+   - They can improve the performance of queries by precomputing and storing the results.
+   - Example:
+     ```sql
+     CREATE VIEW EmployeeSales AS
+     SELECT employee_id, SUM(sales_amount) AS total_sales
+     FROM Sales
+     GROUP BY employee_id;
+
+     CREATE UNIQUE CLUSTERED INDEX IX_EmployeeSales ON EmployeeSales(employee_id);
+     ```
+
+4. **Partitioned Views**:
+   - Partitioned views allow you to partition data across multiple tables transparently.
+   - They are useful for managing large datasets and improving query performance.
+   - Example:
+     ```sql
+     CREATE VIEW SalesByMonth AS
+     SELECT *
+     FROM Sales_January
+     UNION ALL
+     SELECT *
+     FROM Sales_February
+     UNION ALL
+     ...
+     ```
+
+### Advantages of Using Views:
+
+1. **Data Abstraction**: Views can hide complexity by providing a simplified interface to users.
+2. **Security**: Views can restrict access to sensitive data by exposing only certain columns or rows to users.
+3. **Performance**: Indexed and materialized views can improve query performance by precomputing results.
+4. **Code Reusability**: Views can encapsulate frequently used queries, promoting code reuse and maintainability.
+
+### Limitations of Views:
+
+1. **Performance Overhead**: Complex views can introduce performance overhead, especially if they involve joins or aggregations.
+2. **Data Modification**: Views may not support certain types of data modifications, especially if they involve multiple tables.
+3. **Complexity**: Maintaining and debugging complex views can be challenging, especially as they grow in complexity.
+
+In summary, views in SQL provide a powerful mechanism for simplifying queries, enforcing security, and improving performance, but they should be used judiciously to avoid complexity and overhead.

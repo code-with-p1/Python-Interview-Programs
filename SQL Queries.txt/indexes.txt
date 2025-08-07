@@ -1,0 +1,43 @@
+Certainly! Here are examples of `CREATE INDEX` queries for each of the mentioned index types in PostgreSQL:
+
+1. **B-tree Index**:
+```sql
+CREATE INDEX btree_index_name ON your_table_name (column_name);
+```
+
+2. **Hash Index**:
+```sql
+CREATE INDEX hash_index_name ON your_table_name USING hash (column_name);
+```
+
+3. **GIN (Generalized Inverted Index)**:
+```sql
+CREATE INDEX gin_index_name ON your_table_name USING gin (column_name);
+```
+
+4. **GiST (Generalized Search Tree)**:
+```sql
+CREATE INDEX gist_index_name ON your_table_name USING gist (column_name);
+```
+
+5. **SP-GiST (Space-Partitioned Generalized Search Tree)**:
+```sql
+CREATE INDEX spgist_index_name ON your_table_name USING spgist (column_name);
+```
+
+6. **BRIN (Block Range Index)**:
+```sql
+CREATE INDEX brin_index_name ON your_table_name USING brin (column_name);
+```
+
+7. **Partial Index**:
+```sql
+CREATE INDEX partial_index_name ON your_table_name (column_name) WHERE condition;
+```
+
+8. **Expression Index**:
+```sql
+CREATE INDEX expression_index_name ON your_table_name ((expression));
+```
+
+Replace `index_name` with the desired name for the index, `your_table_name` with the name of your table, `column_name` with the column you want to create the index on, and `condition` with the condition for a partial index or `expression` with the expression for an expression index.
